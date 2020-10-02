@@ -1,3 +1,5 @@
+var pkgName = process.env.PKG_NAME || 'Testcafe';
+
 export default function () {
     return {
         noColors:           true,
@@ -45,7 +47,7 @@ export default function () {
 
             name = this.escapeHtml(name);
 
-            var openTag = `<testcase classname="${this.currentFixtureName}" ` +
+            var openTag = `<testcase classname="${pkgName}.${this.currentFixtureName}" ` +
                           `name="${name}" time="${testRunInfo.durationMs / 1000}">\n`;
 
             this.report += this.indentString(openTag, 2);
